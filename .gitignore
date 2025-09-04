@@ -1,0 +1,40 @@
+# Virtual environments
+venv/
+env/
+z_arenv/
+
+# Database
+*.sqlite3
+
+# Media and static files
+media/
+static/
+
+# Compiled Python bytecode
+__pycache__/
+.pytest_cache/
+*.pyc
+*.pyd
+*.so
+
+# Distribution and packaging
+build/
+dist/
+*.egg
+*.whl
+
+# Editor/IDE specific files
+.vscode/
+.idea/
+*.swp
+
+# Log files and temporary data
+*.log
+*.tmp
+
+# Additional ignores
+node_modules/
+
+# Sensitive configuration
+*.env
+settings_local.py
