@@ -5,4 +5,19 @@
     <h1 class="text-3xl font-medium text-red-300">Enregistrez</h1>
     <button id="startBtn" class="mt-4 px-4 py-2 bg-blue-500 text-white rounded">Démarrer l'enregistrement</button>
     <button id="stopBtn" class="mt-4 px-4 py-2 bg-red-500 text-white rounded" disabled>Arrêter l'enregistrement</button>
+    <audio id="player" controls class="mt-4"></audio>
+
+    <h2 class="">Saved recordings</h2>
+    <ul id="recordingsList" class="list-disc list-inside">
+        {% for recording in recordings %}
+            <li>
+                <a href="{{ recording.audio_file.url }}" download class="text-blue-500 underline">
+                    {{ recording.audio_file.title|slice:"15:" }} ({{ recording.created_at|date:"Y-m-d H:i" }})
+                </a>
+                <audio controls class="mt-2" src="{{ recording.audio_file.url }}"></audio>
+            </li>
+        {% empty %}
+            <li>No recordings available.</li>
+        {% endfor %}
+    </ul>
 {% endblock content %}
