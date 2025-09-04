@@ -12,7 +12,7 @@ def index(request):
     return render(request, 'recording/index.html', context)
 
 
-def upload_recoridng(request):
+def upload_recording(request):
     if request.method == 'POST' and request.FILES.get('audio_file'):
         form = AudioRecordingForm(request.POST, request.FILES)
         if form.is_valid():
