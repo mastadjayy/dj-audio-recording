@@ -7,12 +7,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Les Ethnies</title>
+    <style>
+        body {font-family: Arial, Helvetica, sans-serif; text-align: center; padding: 20px;}
+        .controls { margin: 20px 0; }
+        button { padding: 10px 20px; margin: 5px; font-size: 16px; }
+        .recording-indicator { color: red; font-weight: bold; display: none; }
+        #timer { font-size: 18px; margin-top: 10px; }
+        .recording-list { margin-top: 10px; }
+        .recording-item { margin-bottom: 15px; padding: 10px; border: 1px solid #ddd; border-radius: 8px; }
+    </style>
     <link href="{% static 'src/output.css' %}" rel="stylesheet">
 </head>
 <body class="">
     {% block content %}
     {% endblock content %}
 
+    <!-- CRSF setup -->
+    <script>
+        function getCookie(name) {
+            let cookieValue = null;
+            if (document.cookie && document.cookie !== "") {
+                const cookies = document.cookie.split(";");
+                for (let cookie of cookies) {
+                    cookie = cookie.trim();
+                    if (cookie.startsWith(name + "=")) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+        window.csrftoken = getCookie("csrftoken");
+    </script>
+    <!-- Recorder JS -->
     <script src="{% static 'recording/recorder.js' %}"></script>
 </body>
 </html>
