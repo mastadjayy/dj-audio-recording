@@ -2,14 +2,14 @@
 {% extends "_base.html" %}
 
 {% block content %}
-    <h1 class="">Enregistrement Vocal</h1>
+    <h1 class="">🎤 Enregistrement Vocal</h1>
     <!-- Hidden form just to set CSRF cookie -->
      <form method="post" style="display: none;">
         {% csrf_token %}
      </form>
     <div class="controls">
-        <button id="startBtn">Start Recording</button>
-        <button id="stopBtn" disabled>Stop Recording</button>
+        <button id="startBtn">▶️</button>
+        <button id="stopBtn" disabled>🟥</button>
         <div class="recording-indicator" id="recordingIndicator">🔴 En cours d'enregistrement...</div>
         <div id="timer">00:00</div>
         
