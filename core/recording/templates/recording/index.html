@@ -2,22 +2,23 @@
 {% extends "_base.html" %}
 
 {% block content %}
-    <h1 class="text-3xl font-medium">Audio Recorder</h1>
+    <h1 class="">Enregistrement Vocal</h1>
     <!-- Hidden form just to set CSRF cookie -->
      <form method="post" style="display: none;">
         {% csrf_token %}
      </form>
     <div class="controls">
-        <!-- <button id="startBtn" class="mt-4 px-4 py-2 bg-blue-500 text-white rounded">Démarrer l'enregistrement</button>
-        <button id="stopBtn" class="mt-4 px-4 py-2 bg-red-500 text-white rounded" disabled>Arrêter l'enregistrement</button> -->
-        <button id="startBtn" class="mt-4 px-4 py-2 bg-blue-500 text-white rounded">Start Recording</button>
+        <button id="startBtn">Start Recording</button>
         <button id="stopBtn" disabled>Stop Recording</button>
-        <div class="recording-indicator" id="recordingIndicator"> Recording...</div>
+        <div class="recording-indicator" id="recordingIndicator">🔴 En cours d'enregistrement...</div>
         <div id="timer">00:00</div>
-        <audio id="player" controls></audio>
+        
+        <div class="audio-container">
+            <audio id="player" controls></audio>
+        </div>
     </div>
 
-    <h2 class="">Saved recordings</h2>
+    <h2 class="">Enregistrements</h2>
     <div id="recordingsList" class="recording-list">
         {% for record in recordings %}
             <div class="recording-item">
